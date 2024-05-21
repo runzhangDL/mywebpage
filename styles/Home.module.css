@@ -21,17 +21,48 @@
 .title {
   margin: 0 0 1rem;
   line-height: 1.15;
-  font-size: 3.6rem;
+  font-size: 2.4rem;
 }
 
 .title {
   text-align: center;
 }
 
+.title span{
+  font-size: 1.2rem;
+}
+
 .title,
 .description {
   text-align: center;
 }
+
+.title {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid #000;
+  animation: typing 2s steps(30, end),blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width : 0;
+  }
+  to {
+    width : 100%;
+  }
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50%{
+    border-color: #000;
+  }
+}
+
 
 .description {
   line-height: 1.5;
@@ -83,6 +114,175 @@
 .logo {
   height: 1em;
 }
+
+.profile{
+  height: 10rem;
+  /* border-radius: 50%; */
+  transition: transform 0.6s;
+}
+
+.profile:hover {
+  transform: rotateY(180deg);
+}
+
+.bio {
+  border: 0.1em solid #ccc;
+  border-radius: 1em;
+  padding: 2em;
+  margin-bottom: 2em;
+  margin-top: 2em;
+  box-shadow: 0 1em 2em rgba(0, 0, 0, 0.1);
+  width: 50rem;
+}
+
+.biofooter{
+  font-size: 0.8em;
+  color: #888;
+}
+
+.eduwork{
+  display: flex;
+  width: 50rem;
+  gap: 2em;
+}
+
+.eduworkcol {
+  flex: 1;
+  padding: 2rem;
+  border: 0.1em solid #ccc;
+  border-radius: 1em;
+  box-shadow: 0 1em 2em rgba(0, 0, 0, 0.1);
+}
+
+.gear {
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  width: 6rem;
+  height: 6rem;
+  background-size: cover;
+  background-image: url("/gear.png");
+  transition: transform 0.2s linear;
+}
+
+.educationlist {
+  list-style-type: none;
+  padding: 0;
+}
+
+.educationitem {
+  margin-bottom: 0.8em;
+  position: relative;
+  padding-left: 2em;
+}
+
+
+.educationitem::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.2em;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  background-color: #333;
+}
+
+.educationitem::after {
+  content: '';
+  position: absolute;
+  left: 0.46em;
+  top: 1em;
+  bottom: -5em;
+  width: 0.1em;
+  background-color: #333;
+}
+
+.educationitem:last-child::after {
+  display: none;
+}
+
+.educationdegree {
+  font-weight: bold;
+  margin-bottom: 0.1em;
+}
+
+.educationinstitution {
+  font-style: italic;
+  margin-bottom: 0.3em;
+}
+
+.educationdate {
+  color: #666;
+  font-size: 0.8em;
+}
+
+.worklist {
+  list-style-type: none;
+  padding: 0;
+}
+
+.workitem {
+  margin-bottom: 0.8em;
+  position: relative;
+  padding-left: 2em;
+}
+
+.workitem::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.2em;
+  width: 1em;
+  height: 1em;
+  background-color: #333;
+  transform: rotate(45deg);
+  }
+
+  .workitem::after {
+    content: '';
+    position: absolute;
+    left: 0.46em;
+    top: 1em;
+    bottom: -5em;
+    width: 0.1em;
+    background-color: #333;
+  }
+
+  .workitem:last-child::after {
+    display: none;
+  }
+
+  .worktitle {
+    font-weight: bold;
+    margin-bottom: 0.1em;
+  }
+
+  .workcompany {
+    font-style: italic;
+    margin-bottom: 0.3em;
+  }
+
+  .workdate {
+    color: #666;
+    font-size: 0.8em;
+  }
+
+  .workdescription {
+    margin-left: 20px;
+  }
+
+  .footer{
+    gap:1em;
+  }
+
+  .footer svg{
+    transition: fill 0.3s ease;
+  }
+
+  .footer svg:hover{
+    fill: #0070f3;
+  }
 
 @media (max-width: 600px) {
   .grid {
