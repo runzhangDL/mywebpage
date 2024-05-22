@@ -93,28 +93,48 @@ export default function Home() {
         </div>
 
         <div className={styles.project}>
-          Text and table data processing with regular expression and NLP techniques.
+          <img src='/ner.jpg'></img>
+          <div>
+            <h4>Text and tabular data processing with regular expression and NLP techniques.</h4>
+            <p>It was done during my first work experiencew when I was an intern. Given text and tabular data, a specific program is required to extract the useful information among them and allocate them into the correct entries of database, turning unstrctured data to structure data. </p>
+          </div>
         </div>
 
         <div className={styles.project}>
-          Research on Graph Neural Networks on Graph automatical generation on text data.
+          <img src='/graph1.png'></img>
+          <div>
+            <h4>Research on Graph Attention Networks and automatical Grap generation on text data, with LSTM.</h4>
+            <p>While working with text data, I relaized that a structured data was commomly represented into relational graphs, where two nodes will be connected if the two entities have some kinds of relationship such as parent and children. It is natural to come up with the idea that if deep learning model can learn to draw the graph.</p>
+          </div>
         </div>
         
         <div className={styles.project}>
-          3D LiDAR point cloud semantic segmentation and noise point recoginition
+          <img src="/pcd.png"></img>
+          <div>
+          <h4>3D LiDAR point cloud semantic and noise point recoginition</h4>
+          <p>LiDAR is an important component of the perception system on autonomous driving vehicles. It constructs point cloud data by receiving the reflected light. The downstream task will then analyze the data recognizing what objects are there and aoviding interfere from noise points. </p>
+          </div>
         </div>
 
         <div className={styles.project}>
-          Using MapReduce to extract specific data from Hadoop distribution
+          <img src="/mapreduce.png"></img>
+          <div>
+            <h4>Using MapReduce to retrieve specific data from Hadoop distribution</h4>
+            <p>Hadoop is commonly used to mangage a large quantity of data, such as point cloud, stored in distributed systems. MapReduce provides developers a tool to efficient retrieval on specific data based on particular algorithms </p>
+          </div>
         </div>
 
         <div className={styles.project}>
-          Using SimVP video prediction model to predict the semantci masks of moving objects.
+          <img src="/simvp.png"></img>
+          <div>
+          <h4>Predict the future semantci masks of moving objects.</h4>
+          <p>In the project for the deep learning course at NYU, I work with two classmates to implement SimVP open-source model on a semantic prediction task .</p>
+          </div>
         </div>
 
-        <div className={styles.project}>
+        {/* <div className={styles.project}>
           Simple deleted file recovery program based on FAT32 file system with C programming language.
-        </div>
+        </div> */}
 
         <div>
 

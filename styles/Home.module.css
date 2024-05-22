@@ -306,6 +306,7 @@
 
   .project img{
     height: 8rem;
+    margin-right: 1em;
   }
 
   .project div{
@@ -400,10 +401,12 @@
     width: 100%;
     transition: transform 0.3s ease;
     display: block;
+    text-align: center;
   }
 
   .project img{
     height: 11rem;
+    width: 18rem;
   }
 
   .project div{
