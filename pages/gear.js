@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styles from '../styles/Home.module.css';
+import { useRouter } from 'next/router';
 
 // const Gear = () => {
 //   const [scrollDirection, setScrollDirection] = useState(null);
@@ -49,12 +50,19 @@ const Gear = () => {
     };
   }, []);
 
+  const router = useRouter();
+
+  const handleClick = () => {
+    router.push('/');
+  }
+
   return (
     <div
       className={styles.gear}
       style={{
         transform: `rotate(${rotation}deg)`,
       }}
+      onClick={handleClick}
     ></div>
   );
 };

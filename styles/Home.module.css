@@ -164,6 +164,10 @@
   transition: transform 0.2s linear;
 }
 
+.gear:hover {
+  cursor: pointer;
+}
+
 .educationlist {
   list-style-type: none;
   padding: 0;
