@@ -1,6 +1,5 @@
 .container {
-  min-height: 100vh;
-  padding: 0 0.5rem;
+  padding: 0 0rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -288,5 +287,51 @@
   .grid {
     width: 100%;
     flex-direction: column;
+  }
+
+  .container {
+    padding: 0 0rem;
+    display: block;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0.65rem;
+  }
+
+  .title {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 0.95em;
+    border-right: 2px solid #000;
+    animation: typing 2s steps(30, end),blink-caret 0.75s step-end infinite;
+  }
+
+  .title span{
+    font-size: 0.5rem;
+  }
+
+  .bio {
+    border: 0.1em solid #ccc;
+    border-radius: 1em;
+    padding: 2em;
+    margin-bottom: 2em;
+    margin-top: 2em;
+    box-shadow: 0 1em 2em rgba(0, 0, 0, 0.1);
+    width: 100%;
+  }
+
+  .eduwork{
+    width: 100%;
+    display: block;
+  }
+  
+  .eduworkcol {
+    padding: 2rem;
+    border: 0.1em solid #ccc;
+    border-radius: 1em;
+    box-shadow: 0 1em 2em rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
   }
 }

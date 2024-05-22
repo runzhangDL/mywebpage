@@ -10,6 +10,7 @@ export default function Home() {
     <div className={styles.container}>
       <Head>
         <title>Run Zhang's Homepage</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
