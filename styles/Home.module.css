@@ -283,7 +283,7 @@
     fill: #0070f3;
   }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .grid {
     width: 100%;
     flex-direction: column;
@@ -303,13 +303,13 @@
     width: 100%;
     overflow: hidden;
     white-space: nowrap;
-    font-size: 0.95em;
+    font-size: 3.4vw;
     border-right: 2px solid #000;
     animation: typing 2s steps(30, end),blink-caret 0.75s step-end infinite;
   }
 
   .title span{
-    font-size: 0.5rem;
+    font-size: 1.9vw;
   }
 
   .bio {
@@ -333,5 +333,9 @@
     border-radius: 1em;
     box-shadow: 0 1em 2em rgba(0, 0, 0, 0.1);
     margin-bottom: 2rem;
+  }
+
+  .gear {
+    display: none;
   }
 }
