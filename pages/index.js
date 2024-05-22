@@ -79,6 +79,47 @@ export default function Home() {
           </div>   
         </div>
         <Gear></Gear>
+          
+        <div className={styles.divider}>
+          Projects
+        </div>
+
+        <div className={styles.project}>
+          <img src='/navi_nn.png'></img>
+          <div>
+          <h4>Autonomous Surface Vehicle Controller</h4>
+          <p>The MSc disseration was about implementing Evolutionary Algorithms(MAP-Elites particularly) to build a vehicle controller, which chose from the action space based on the current status of the environment or vehicle itself. The project also investigate deep reinforcement learning and compared the two methods.</p>
+          </div>
+        </div>
+
+        <div className={styles.project}>
+          Text and table data processing with regular expression and NLP techniques.
+        </div>
+
+        <div className={styles.project}>
+          Research on Graph Neural Networks on Graph automatical generation on text data.
+        </div>
+        
+        <div className={styles.project}>
+          3D LiDAR point cloud semantic segmentation and noise point recoginition
+        </div>
+
+        <div className={styles.project}>
+          Using MapReduce to extract specific data from Hadoop distribution
+        </div>
+
+        <div className={styles.project}>
+          Using SimVP video prediction model to predict the semantci masks of moving objects.
+        </div>
+
+        <div className={styles.project}>
+          Simple deleted file recovery program based on FAT32 file system with C programming language.
+        </div>
+
+        <div>
+
+        </div>
+
       </main>
 
       <footer className={styles.footer}>
