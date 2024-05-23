@@ -33,8 +33,14 @@ import { useRouter } from 'next/router';
 //   );
 // };
 
-const Gear = () => {
+const Gear = ({is_home}) => {
   const [rotation, setRotation] = useState(0);
+
+  const router = useRouter()
+
+  const handleClick = () => {
+    router.push('/')
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -50,21 +56,28 @@ const Gear = () => {
     };
   }, []);
 
-  const router = useRouter();
-
-  const handleClick = () => {
-    router.push('/');
+  if(is_home){
+    return (
+      <div
+        className={styles.gear}
+        style={{
+          transform: `rotate(${rotation}deg)`,
+        }}
+        onClick={handleClick}
+      ></div>
+    );
   }
-
-  return (
-    <div
-      className={styles.gear}
-      style={{
-        transform: `rotate(${rotation}deg)`,
-      }}
-      onClick={handleClick}
-    ></div>
-  );
+  else{
+    return (
+      <a
+        className={styles.gear}
+        style={{
+          transform: `rotate(${rotation}deg)`,
+        }}
+        href='/'
+      ></a>
+    );
+  }
 };
 
 

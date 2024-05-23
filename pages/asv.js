@@ -1,147 +1,29 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import Gear from './gear';
-import AsvItem from './asvItem';
 import React, { useState } from 'react'
 
-
-export default function Home() {
+const Asv = () => {
 
   return (
     <div className={styles.container}>
       <Head>
-        <title>Run Zhang's Homepage</title>
+        <title>Run Zhang's Project-ASV</title>
         <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
-        <h2 className={styles.title}>
-          Hi<span>(你好)</span>, my name is Run Zhang<span>(张润)</span>. Welcome to my page!
-        </h2>
 
-        <img src='/profile.jpg' className={styles.profile}></img>
-
-        <article className={styles.bio}>
-          <header>
-            <h2>Short Biography</h2>
-            <p>Last updated on <time dateTime='2024-5-21'>May 21st, 2024</time></p>
-          </header>
-          <p>I think of myself first and foremost as a software engineer. Over the years, I've gotten quite a bit of experience coding in C/C++ and Python to put algorithms into practice and work with data across a range of fields. That includes some cool projects using deep learning to tackle real-world challenges. These days, I'm broadening my horizons and picking up a wider variety of tech skills, from full-stack development to databases, so I can grow into a more versatile and accomplished engineer. I'm driven by working on projects that are both impactful and intellectually stimulating.</p>
-          <p className={styles.biofooter}>- Run Zhang</p>
-          {/* <footer>
-            <p>Author: Run Zhang</p>
-          </footer> */}
-        </article>
-
-        <div className={styles.eduwork}>
-          <div className={styles.eduworkcol}>
-            <h2>Education</h2>
-            <ul class={styles.educationlist}>
-              <li class={styles.educationitem}>
-                <div class={styles.educationdegree}>MS Information Systems</div>
-                <div class={styles.educationinstitution}>New York University</div>
-                <div class={styles.educationdate}>September 2023 - May 2025(Expected)</div>
-              </li>
-              <li class={styles.educationitem}>
-                <div class={styles.educationdegree}>MSc Artificial Intelligence</div>
-                <div class={styles.educationinstitution}>University of Southampton</div>
-                <div class={styles.educationdate}>September 2019 - October 2020</div>
-              </li>
-              <li class={styles.educationitem}>
-                <div class={styles.educationdegree}>Bachelor Software Engineering</div>
-                <div class={styles.educationinstitution}>Guangzhou University</div>
-                <div class={styles.educationdate}>September 2015 - July 2019</div>
-              </li>
-            </ul>
-          </div>
-
-
-          <div className={styles.eduworkcol}>
-            <h2>Professional Experience</h2>
-            
-            <ul class={styles.worklist}>
-            <li class={styles.workitem}>
-              <div class={styles.worktitle}>Software Engineer OD</div>
-              <div class={styles.workcompany}>Huawei Technologies Co., Ltd</div>
-              <div class={styles.workdate}>March 2023 - June 2023</div>
-            </li>
-            <li class={styles.workitem}>
-              <div class={styles.worktitle}>Software Engineer</div>
-              <div class={styles.workcompany}>Autowise.ai</div>
-              <div class={styles.workdate}>August 2021 - November 2022</div>
-            </li>
-            <li class={styles.workitem}>
-              <div class={styles.worktitle}>Intern</div>
-              <div class={styles.workcompany}>AIIT-PKU</div>
-              <div class={styles.workdate}>November 2020 - June 2021</div>
-            </li>
-          </ul>
-          </div>   
-        </div>
-        <Gear is_home={true}></Gear>
-          
-        <div className={styles.divider}>
-          Projects
-        </div>
-        
-        <AsvItem></AsvItem>
-        {/* <div className={styles.project}>
-          <img src='/navi_nn.png'></img>
-          <div>
-          <h4>Autonomous Surface Vehicle Controller</h4>
-          <p>The MSc disseration was about implementing Evolutionary Algorithms(MAP-Elites particularly) to build a vehicle controller, which chose from the action space based on the current status of the environment or vehicle itself. The project also investigate deep reinforcement learning and compared the two methods.</p>
-          </div>
-        </div> */}
-
-        <div className={styles.project}>
-          <img src='/ner.jpg'></img>
-          <div>
-            <h4>Text and tabular data processing with regular expression and NLP techniques.</h4>
-            <p>It was done during my first work experiencew when I was an intern. Given text and tabular data, a specific program is required to extract the useful information among them and allocate them into the correct entries of database, turning unstrctured data to structure data. </p>
-          </div>
+        <div className={styles.breadcrumb}>
+            <a href='/'>Home</a> &gt; ASV Project Details
         </div>
 
-        <div className={styles.project}>
-          <img src='/graph1.png'></img>
-          <div>
-            <h4>Research on Graph Attention Networks and automatical Grap generation on text data, with LSTM.</h4>
-            <p>While working with text data, I relaized that a structured data was commomly represented into relational graphs, where two nodes will be connected if the two entities have some kinds of relationship such as parent and children. It is natural to come up with the idea that if deep learning model can learn to draw the graph.</p>
-          </div>
-        </div>
-        
-        <div className={styles.project}>
-          <img src="/pcd.png"></img>
-          <div>
-          <h4>3D LiDAR point cloud semantic and noise point recoginition</h4>
-          <p>LiDAR is an important component of the perception system on autonomous driving vehicles. It constructs point cloud data by receiving the reflected light. The downstream task will then analyze the data recognizing what objects are there and aoviding interfere from noise points. </p>
-          </div>
+        <div className= {styles.projectContainer}>
+            <h1>Autonomous Surface Vehicle Controller</h1>
         </div>
 
-        <div className={styles.project}>
-          <img src="/mapreduce.png"></img>
-          <div>
-            <h4>Using MapReduce to retrieve specific data from Hadoop distribution</h4>
-            <p>Hadoop is commonly used to mangage a large quantity of data, such as point cloud, stored in distributed systems. MapReduce provides developers a tool to efficient retrieval on specific data based on particular algorithms </p>
-          </div>
-        </div>
-
-        <div className={styles.project}>
-          <img src="/simvp.png"></img>
-          <div>
-          <h4>Predict the future semantci masks of moving objects.</h4>
-          <p>In the project for the deep learning course at NYU, I work with two classmates to implement SimVP open-source model on a semantic prediction task .</p>
-          </div>
-        </div>
-
-        {/* <div className={styles.project}>
-          Simple deleted file recovery program based on FAT32 file system with C programming language.
-        </div> */}
-
-        <div>
-
-        </div>
-
+        <Gear is_home={false}></Gear>
       </main>
 
       <footer className={styles.footer}>
@@ -259,3 +141,5 @@ export default function Home() {
     </div>
   );
 }
+
+export default Asv;
