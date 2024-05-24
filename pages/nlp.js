@@ -1,127 +1,128 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import Gear from './gear';
-import AsvItem from './asvItem';
 import React, { useState } from 'react'
-import GatItem from './gatItem';
-import NlpItem from './nlpItem';
-import PcdItem from './pcdItem';
-import VrlItem from './vrlItem';
+import CodeBlock from './CodeBlock';
 
+const Nlp = () => {
 
-export default function Home() {
+    const code = `
+    def extract(bid_json):
+      res = []
+      try:
+          df = pd.read_html(bid_json['elements_html'])
+          res = None
+          if len(df) == 1:
+              e = 1
+              for i in range(1, len(df[0])):
+                  if type(df[0].iloc[i, 2]) == float:
+                      if math.isnan(df[0].iloc[i, 2]):
+                          e = i
+                          break
+              res = df[0].iloc[1:e, 3:]
+              res = res.loc[:, ~res.iloc[1, :].duplicated()]
+              res.columns = range(0, len(res.columns))
+              res.index = range(0, len(res))
+          elif len(df) > 4:
+              if df[4].iloc[0, 0] == '序号':
+                  res = df[4]
+              else:
+                  e = 1
+                  for i in range(1, len(df[4])):
+                      if type(df[4].iloc[i, 2]) == float:
+                          if math.isnan(df[4].iloc[i, 2]):
+                              e = i
+                              break
+                  res = df[4].iloc[1:e, 3:]
+                  res = res.loc[:, ~res.iloc[1, :].duplicated()]
+                  res.columns = range(0, len(res.columns))
+                  res.index = range(0, len(res))
+          if type(res) != pd.DataFrame or len(res.columns) == 0:
+              if df[1].iloc[0, 0] == '序号':
+                  res = df[1]
+              else:
+                  e = 1
+                  for i in range(1, len(df[1])):
+                      if type(df[1].iloc[i, 2]) == float:
+                          if math.isnan(df[1].iloc[i, 2]):
+                              e = i
+                              break
+                  res = df[1].iloc[1:e, 3:]
+                  res = res.loc[:, ~res.iloc[1, :].duplicated()]
+                  res.columns = range(0, len(res.columns))
+                  res.index = range(0, len(res))
+      except Exception as e:
+          print(e)
+      # print(res)
+      products_list = []
+      for i in range(1,len(res)):
+          tmp_dict = {}
+          for j in range(len(res.columns)):
+              if res.iloc[0][j] in mapping_dict:
+                  tmp_dict[mapping_dict[res.iloc[0][j]]] = res.iloc[i][j]
+          products_list.append(tmp_dict)
+      print(products_list)
+      return products_list
+  `;
+
+  const cls = `
+    train_texts = list(df.iloc[:, 1])
+    train_labels = list(df.iloc[:, 2])
+    self.vectorizer = TfidfVectorizer(use_idf=True, tokenizer=jieba.lcut)
+    X = self.vectorizer.fit_transform(train_texts)
+    self.clf = GaussianNB()
+    self.clf.fit(X.toarray(), train_labels)
+  `
+
+  const re = `
+    from bs4 import BeautifulSoup
+    import re
+
+    text = BeautifulSoup(bid_json['elements_html'], 'html.parser').get_text().replace('xa0', '').replace('\\xa0', '').replace('\\n', '').replace('\\r', '')
+    name = re.findall(r'姓名.*?([\\u4e00-\\u9fa5]+)', text)
+    deadline = re.findall(r'截止时间：*?(2.*?秒)', text)
+  `
 
   return (
     <div className={styles.container}>
       <Head>
-        <title>Run Zhang's Homepage</title>
+        <title>Run Zhang's Project-NLP</title>
         <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
-        <h2 className={styles.title}>
-          Hi<span>(你好)</span>, my name is Run Zhang<span>(张润)</span>. Welcome to my page!
-        </h2>
 
-        <img src='/profile.jpg' className={styles.profile}></img>
-
-        <article className={styles.bio}>
-          <header>
-            <h2>Short Biography</h2>
-            <p>Last updated on <time dateTime='2024-5-21'>May 21st, 2024</time></p>
-          </header>
-          <p>I think of myself first and foremost as a software engineer. Over the years, I've gotten quite a bit of experience coding in C/C++ and Python to put algorithms into practice and work with data across a range of fields. That includes some cool projects using deep learning to tackle real-world challenges. These days, I'm broadening my horizons and picking up a wider variety of tech skills, from full-stack development to databases, so I can grow into a more versatile and accomplished engineer. I'm driven by working on projects that are both impactful and intellectually stimulating.</p>
-          <p className={styles.biofooter}>- Run Zhang</p>
-          {/* <footer>
-            <p>Author: Run Zhang</p>
-          </footer> */}
-        </article>
-
-        <div className={styles.eduwork}>
-          <div className={styles.eduworkcol}>
-            <h2>Education</h2>
-            <ul class={styles.educationlist}>
-              <li class={styles.educationitem}>
-                <div class={styles.educationdegree}>MS Information Systems</div>
-                <div class={styles.educationinstitution}>New York University</div>
-                <div class={styles.educationdate}>September 2023 - May 2025(Expected)</div>
-              </li>
-              <li class={styles.educationitem}>
-                <div class={styles.educationdegree}>MSc Artificial Intelligence</div>
-                <div class={styles.educationinstitution}>University of Southampton</div>
-                <div class={styles.educationdate}>September 2019 - October 2020</div>
-              </li>
-              <li class={styles.educationitem}>
-                <div class={styles.educationdegree}>Bachelor Software Engineering</div>
-                <div class={styles.educationinstitution}>Guangzhou University</div>
-                <div class={styles.educationdate}>September 2015 - July 2019</div>
-              </li>
-            </ul>
-          </div>
-
-
-          <div className={styles.eduworkcol}>
-            <h2>Professional Experience</h2>
-            
-            <ul class={styles.worklist}>
-            <li class={styles.workitem}>
-              <div class={styles.worktitle}>Software Engineer OD</div>
-              <div class={styles.workcompany}>Huawei Technologies Co., Ltd</div>
-              <div class={styles.workdate}>March 2023 - August 2023</div>
-            </li>
-            <li class={styles.workitem}>
-              <div class={styles.worktitle}>Software Engineer</div>
-              <div class={styles.workcompany}>Autowise.ai</div>
-              <div class={styles.workdate}>August 2021 - November 2022</div>
-            </li>
-            <li class={styles.workitem}>
-              <div class={styles.worktitle}>Intern</div>
-              <div class={styles.workcompany}>AIIT-PKU</div>
-              <div class={styles.workdate}>November 2020 - June 2021</div>
-            </li>
-          </ul>
-          </div>   
-        </div>
-        <Gear is_home={true}></Gear>
-          
-        <div className={styles.divider}>
-          Projects
-        </div>
-        
-        <AsvItem></AsvItem>
-        {/* <div className={styles.project}>
-          <img src='/navi_nn.png'></img>
-          <div>
-          <h4>Autonomous Surface Vehicle Controller</h4>
-          <p>The MSc disseration was about implementing Evolutionary Algorithms(MAP-Elites particularly) to build a vehicle controller, which chose from the action space based on the current status of the environment or vehicle itself. The project also investigate deep reinforcement learning and compared the two methods.</p>
-          </div>
-        </div> */}
-
-        <NlpItem></NlpItem>
-
-        <GatItem></GatItem>
-        
-        <PcdItem></PcdItem>
-
-        {/* <div className={styles.project}>
-          <img src="/mapreduce.png"></img>
-          <div>
-            <h4>Using MapReduce to retrieve specific data from Hadoop distribution</h4>
-            <p>Hadoop is commonly used to mangage a large quantity of data, such as point cloud, stored in distributed systems. MapReduce provides developers a tool to efficient retrieval on specific data based on particular algorithms </p>
-          </div>
-        </div> */}
-
-        <VrlItem></VrlItem>
-
-        {/* <div className={styles.project}>
-          Simple deleted file recovery program based on FAT32 file system with C programming language.
-        </div> */}
-
-        <div>
-
+        <div className={styles.breadcrumb}>
+            <a href='/'>Home</a> &gt; NLP Project Details
         </div>
 
+        <div className={styles.projectContainer}>
+            <h1>Text and tabular data processing with regular expression and NLP techniques</h1>
+            <div>
+                <h2>Problem Context</h2>
+                <p>Imagine the following scenario: You are a sales representative for a manufacturing company. When searching for potential customers online, you have to browse through numerous websites where customers express their need for products that your company may offer. Sometimes, there might be hundreds of such websites, as some business customers publish their requirements on their own sites. If a program could browse these websites for you, filter out irrelevant pages, and even extract details such as the specific products and quantities needed, it could potentially turn a day's work for a human into a matter of minutes for a computer. Although this idea has good intentions, its implementation is much more challenging than coming up with the concept itself. To partially solve this problem, I have utilized Python data processing toolkits, regular expressions, and simple Natural Language Processing (NLP) techniques.</p>
+            </div>
+            <div>
+                <h2>Implementation</h2>
+                <p>Many organizations publish their product requirements in the form of tables, which include specifications and quantities. To process this tabular data effectively, it becomes necessary to utilize Python packages like pandas. Below is a code snippet that I implemented to handle such tasks:</p>
+
+                <CodeBlock code={code} language={"python"}></CodeBlock>
+
+                <p> 
+                  When classifying a single line of text into several categories, large language models might be unnecessarily complex. Instead, traditional techniques like TF-IDF (Term Frequency-Inverse Document Frequency) combined with machine learning models can be more effective in solving the problem. A sample code snippet demonstrating this approach is shown below:
+                </p>
+                
+                <CodeBlock code={cls} language={"python"}></CodeBlock>
+
+                <p>When we know that our target content consistently follows a specific pattern, it can be convenient to extract the desired information using regular expressions.</p>
+
+                <CodeBlock code={re} language={"python"}></CodeBlock>
+
+            </div>
+        </div>
+
+        <Gear is_home={false}></Gear>
       </main>
 
       <footer className={styles.footer}>
@@ -239,3 +240,5 @@ export default function Home() {
     </div>
   );
 }
+
+export default Nlp;

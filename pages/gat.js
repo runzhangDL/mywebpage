@@ -1,127 +1,61 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import Gear from './gear';
-import AsvItem from './asvItem';
 import React, { useState } from 'react'
-import GatItem from './gatItem';
-import NlpItem from './nlpItem';
-import PcdItem from './pcdItem';
-import VrlItem from './vrlItem';
 
-
-export default function Home() {
+const Gat = () => {
 
   return (
     <div className={styles.container}>
       <Head>
-        <title>Run Zhang's Homepage</title>
+        <title>Run Zhang's Project-GAT</title>
         <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
-        <h2 className={styles.title}>
-          Hi<span>(你好)</span>, my name is Run Zhang<span>(张润)</span>. Welcome to my page!
-        </h2>
 
-        <img src='/profile.jpg' className={styles.profile}></img>
-
-        <article className={styles.bio}>
-          <header>
-            <h2>Short Biography</h2>
-            <p>Last updated on <time dateTime='2024-5-21'>May 21st, 2024</time></p>
-          </header>
-          <p>I think of myself first and foremost as a software engineer. Over the years, I've gotten quite a bit of experience coding in C/C++ and Python to put algorithms into practice and work with data across a range of fields. That includes some cool projects using deep learning to tackle real-world challenges. These days, I'm broadening my horizons and picking up a wider variety of tech skills, from full-stack development to databases, so I can grow into a more versatile and accomplished engineer. I'm driven by working on projects that are both impactful and intellectually stimulating.</p>
-          <p className={styles.biofooter}>- Run Zhang</p>
-          {/* <footer>
-            <p>Author: Run Zhang</p>
-          </footer> */}
-        </article>
-
-        <div className={styles.eduwork}>
-          <div className={styles.eduworkcol}>
-            <h2>Education</h2>
-            <ul class={styles.educationlist}>
-              <li class={styles.educationitem}>
-                <div class={styles.educationdegree}>MS Information Systems</div>
-                <div class={styles.educationinstitution}>New York University</div>
-                <div class={styles.educationdate}>September 2023 - May 2025(Expected)</div>
-              </li>
-              <li class={styles.educationitem}>
-                <div class={styles.educationdegree}>MSc Artificial Intelligence</div>
-                <div class={styles.educationinstitution}>University of Southampton</div>
-                <div class={styles.educationdate}>September 2019 - October 2020</div>
-              </li>
-              <li class={styles.educationitem}>
-                <div class={styles.educationdegree}>Bachelor Software Engineering</div>
-                <div class={styles.educationinstitution}>Guangzhou University</div>
-                <div class={styles.educationdate}>September 2015 - July 2019</div>
-              </li>
-            </ul>
-          </div>
-
-
-          <div className={styles.eduworkcol}>
-            <h2>Professional Experience</h2>
-            
-            <ul class={styles.worklist}>
-            <li class={styles.workitem}>
-              <div class={styles.worktitle}>Software Engineer OD</div>
-              <div class={styles.workcompany}>Huawei Technologies Co., Ltd</div>
-              <div class={styles.workdate}>March 2023 - August 2023</div>
-            </li>
-            <li class={styles.workitem}>
-              <div class={styles.worktitle}>Software Engineer</div>
-              <div class={styles.workcompany}>Autowise.ai</div>
-              <div class={styles.workdate}>August 2021 - November 2022</div>
-            </li>
-            <li class={styles.workitem}>
-              <div class={styles.worktitle}>Intern</div>
-              <div class={styles.workcompany}>AIIT-PKU</div>
-              <div class={styles.workdate}>November 2020 - June 2021</div>
-            </li>
-          </ul>
-          </div>   
-        </div>
-        <Gear is_home={true}></Gear>
-          
-        <div className={styles.divider}>
-          Projects
-        </div>
-        
-        <AsvItem></AsvItem>
-        {/* <div className={styles.project}>
-          <img src='/navi_nn.png'></img>
-          <div>
-          <h4>Autonomous Surface Vehicle Controller</h4>
-          <p>The MSc disseration was about implementing Evolutionary Algorithms(MAP-Elites particularly) to build a vehicle controller, which chose from the action space based on the current status of the environment or vehicle itself. The project also investigate deep reinforcement learning and compared the two methods.</p>
-          </div>
-        </div> */}
-
-        <NlpItem></NlpItem>
-
-        <GatItem></GatItem>
-        
-        <PcdItem></PcdItem>
-
-        {/* <div className={styles.project}>
-          <img src="/mapreduce.png"></img>
-          <div>
-            <h4>Using MapReduce to retrieve specific data from Hadoop distribution</h4>
-            <p>Hadoop is commonly used to mangage a large quantity of data, such as point cloud, stored in distributed systems. MapReduce provides developers a tool to efficient retrieval on specific data based on particular algorithms </p>
-          </div>
-        </div> */}
-
-        <VrlItem></VrlItem>
-
-        {/* <div className={styles.project}>
-          Simple deleted file recovery program based on FAT32 file system with C programming language.
-        </div> */}
-
-        <div>
-
+        <div className={styles.breadcrumb}>
+            <a href='/'>Home</a> &gt; GAT Project Details
         </div>
 
+        <div className={styles.projectContainer}>
+            <h1>Research on Graph Attention Networks and automatical Grap generation on text data, with LSTM</h1>
+            <div>
+                <h2>Problem Context</h2>
+                <p>Prior to the release of ChatGPT in 2021, deep learning generative models were not as popular, despite the existence of proven architectures like Generative Adversarial Networks (GANs) and Variational Autoencoders (VAEs). During my internship, I noticed a strong demand in the industry for better utilization of data, making it more easily understood by computers and thus providing greater convenience for users seeking that information. Graphs were commonly used as a way to represent data, and graph databases like Neo4j were available. However, converting text data into graphs usually required a large number of people to manually label and annotate the relationships between entities. This led me to consider the possibility of using generative deep learning models to directly capture the relationships among entities in a paragraph. In this project, I designed a novel architecture for graph generation, specifically focusing on the generation of adjacency matrices.</p>
+                <figure className={styles.projectFigure}>
+                <img src='/Framework.png' alt='Framework for Graph Generation'></img>
+                <figcaption>Figure 1: The overall framework for graph generation</figcaption>
+                </figure>
+            </div>
+            <div>
+                <h2>Implementation</h2>
+                <p>
+                Typically, a target function guides the learning process of a generative model. For example, in Natural Language Processing (NLP), researchers often mask several words in a sentence and train the model to successfully predict those masked words. In our case, to generate semantically meaningful graphs, we introduced a traditional text classification task as the final objective function. This task was only required during the training process and was not part of the graph generation process itself. Interestingly, our model achieved competitive text classification results, even though that was not our primary goal. As shown in Figure 1, words were tokenized and digitized into numbers before being fed into Bidirectional LSTM networks. Then, each resulting embedding was connected to all other words to capture the relationships among them, resulting in an adjacency matrix. With the adjacency matrix, we proceeded to the second step of implementing Graph Attention Networks on the generated graph and performed text classification.
+                </p>
+            </div>
+            <div>
+                <h2>Results</h2>
+                We began by analyzing our results to assess the quality of the classification. Although our results did not surpass those of other graph-based methods, they outperformed traditional approaches and came close to the performance of state-of-the-art (SOTA) classification models.
+                <figure className={styles.projectFigure}>
+                <img src='/textcls.jpg' alt='Text Classification Results'></img>
+                <figcaption>Figure 2: Text classfication results compared to other models. Ours is at the bottom. Bold methods used graph neural networks.</figcaption>
+                </figure>
+                As previously mentioned, the classification objective was used to guide the generation of the graph. Now, let's evaluate the quality of the generated graph. Figure 3 displays the adjacency matrix, where words appearing in the same sentence are shown on the x and y axes. Interestingly, the matrix is symmetric, and the edge weights (representing relations between words) are visibly higher for certain edges compared to others.
+                <figure className={styles.projectFigure}>
+                <img src='/adjacencymatrix.png' alt='Generated Adjacency Matrix'></img>
+                <figcaption>Figure 3: The adjacency matrix of the generated graph.</figcaption>
+                </figure>
+                Finally, we directly visualize the generated graph in Figure 4 below. The graphs represent two texts that were classified as belonging to the "Earn" category. In the graph on the left-hand side, certain words like "payout" and "growth" have a higher degree of edges compared to other words such as "february" and "reuter". This observation demonstrates that the generated graph captures a certain level of semantic information.
+                <figure className={styles.projectFigure}>
+                <img src='/graph.jpg' alt='Generated Graph'></img>
+                <figcaption>Figure 4: The generated graph. Larger vetices with larger text labels denote that they have greater degree(inword or outword edges). Larger edges denote greater weights.</figcaption>
+                </figure>
+            </div>
+        </div>
+
+        <Gear is_home={false}></Gear>
       </main>
 
       <footer className={styles.footer}>
@@ -239,3 +173,5 @@ export default function Home() {
     </div>
   );
 }
+
+export default Gat;

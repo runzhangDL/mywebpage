@@ -345,6 +345,39 @@
     /* align-items: center; */
   }
 
+  .projectContainer h1 {
+    text-align: center;
+  }
+
+  .projectContainer a{
+    text-decoration: none;
+    font-size: inherit;
+    font-style: italic;
+  }
+
+  .projectFigure {
+    width: 100%;
+    margin: 0;
+    margin-top: 1em;
+    text-align: center;
+  }
+
+  .projectFigure img{
+    /* width: 30rem; */
+    max-width: 100%;
+  }
+
+  .projectVideo{
+    margin-top: 1em;
+    margin-bottom: 1em;
+    text-align: center;
+  }
+
+  .projectFigure figcaption{
+    color: grey;
+  }
+  
+
   .breadcrumb {
     position: absolute;
     top: 3rem;
@@ -443,6 +476,7 @@
     border-radius: 1em;
     padding: 2em;
     margin-bottom: 1em;
+    margin-top: 1em;
     box-shadow: 0 1em 2em rgba(0, 0, 0, 0.1);
     width: 100%;
     transition: transform 0.3s ease;
@@ -454,6 +488,7 @@
     height: 11rem;
     width: 18rem;
   }
+
 
   .project div{
     margin-top: 2em;

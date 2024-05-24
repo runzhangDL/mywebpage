@@ -9,7 +9,7 @@ const AsvItem = () => {
           <img src='/navi_nn.png'></img>
           <div>
           <h4>Autonomous Surface Vehicle Controller</h4>
-          <p>The MSc disseration was about implementing Evolutionary Algorithms(MAP-Elites particularly) to build a vehicle controller, which chose from the action space based on the current status of the environment or vehicle itself. The project also investigate deep reinforcement learning and compared the two methods.</p>
+          <p>My Master's dissertation focused on implementing Evolutionary Algorithms to develop a vehicle controller, which selected actions based on the current state of the environment or the vehicle itself. Additionally, the project explored deep reinforcement learning and compared the two approaches.</p>
           </div>
         </a>
     );

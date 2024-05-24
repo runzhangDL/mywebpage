@@ -1,127 +1,71 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import Gear from './gear';
-import AsvItem from './asvItem';
 import React, { useState } from 'react'
-import GatItem from './gatItem';
-import NlpItem from './nlpItem';
-import PcdItem from './pcdItem';
-import VrlItem from './vrlItem';
+import CodeBlock from './CodeBlock';
 
-
-export default function Home() {
+const Vrl = () => {
 
   return (
     <div className={styles.container}>
       <Head>
-        <title>Run Zhang's Homepage</title>
+        <title>Run Zhang's Project-NLP</title>
         <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
-        <h2 className={styles.title}>
-          Hi<span>(你好)</span>, my name is Run Zhang<span>(张润)</span>. Welcome to my page!
-        </h2>
 
-        <img src='/profile.jpg' className={styles.profile}></img>
-
-        <article className={styles.bio}>
-          <header>
-            <h2>Short Biography</h2>
-            <p>Last updated on <time dateTime='2024-5-21'>May 21st, 2024</time></p>
-          </header>
-          <p>I think of myself first and foremost as a software engineer. Over the years, I've gotten quite a bit of experience coding in C/C++ and Python to put algorithms into practice and work with data across a range of fields. That includes some cool projects using deep learning to tackle real-world challenges. These days, I'm broadening my horizons and picking up a wider variety of tech skills, from full-stack development to databases, so I can grow into a more versatile and accomplished engineer. I'm driven by working on projects that are both impactful and intellectually stimulating.</p>
-          <p className={styles.biofooter}>- Run Zhang</p>
-          {/* <footer>
-            <p>Author: Run Zhang</p>
-          </footer> */}
-        </article>
-
-        <div className={styles.eduwork}>
-          <div className={styles.eduworkcol}>
-            <h2>Education</h2>
-            <ul class={styles.educationlist}>
-              <li class={styles.educationitem}>
-                <div class={styles.educationdegree}>MS Information Systems</div>
-                <div class={styles.educationinstitution}>New York University</div>
-                <div class={styles.educationdate}>September 2023 - May 2025(Expected)</div>
-              </li>
-              <li class={styles.educationitem}>
-                <div class={styles.educationdegree}>MSc Artificial Intelligence</div>
-                <div class={styles.educationinstitution}>University of Southampton</div>
-                <div class={styles.educationdate}>September 2019 - October 2020</div>
-              </li>
-              <li class={styles.educationitem}>
-                <div class={styles.educationdegree}>Bachelor Software Engineering</div>
-                <div class={styles.educationinstitution}>Guangzhou University</div>
-                <div class={styles.educationdate}>September 2015 - July 2019</div>
-              </li>
-            </ul>
-          </div>
-
-
-          <div className={styles.eduworkcol}>
-            <h2>Professional Experience</h2>
-            
-            <ul class={styles.worklist}>
-            <li class={styles.workitem}>
-              <div class={styles.worktitle}>Software Engineer OD</div>
-              <div class={styles.workcompany}>Huawei Technologies Co., Ltd</div>
-              <div class={styles.workdate}>March 2023 - August 2023</div>
-            </li>
-            <li class={styles.workitem}>
-              <div class={styles.worktitle}>Software Engineer</div>
-              <div class={styles.workcompany}>Autowise.ai</div>
-              <div class={styles.workdate}>August 2021 - November 2022</div>
-            </li>
-            <li class={styles.workitem}>
-              <div class={styles.worktitle}>Intern</div>
-              <div class={styles.workcompany}>AIIT-PKU</div>
-              <div class={styles.workdate}>November 2020 - June 2021</div>
-            </li>
-          </ul>
-          </div>   
-        </div>
-        <Gear is_home={true}></Gear>
-          
-        <div className={styles.divider}>
-          Projects
-        </div>
-        
-        <AsvItem></AsvItem>
-        {/* <div className={styles.project}>
-          <img src='/navi_nn.png'></img>
-          <div>
-          <h4>Autonomous Surface Vehicle Controller</h4>
-          <p>The MSc disseration was about implementing Evolutionary Algorithms(MAP-Elites particularly) to build a vehicle controller, which chose from the action space based on the current status of the environment or vehicle itself. The project also investigate deep reinforcement learning and compared the two methods.</p>
-          </div>
-        </div> */}
-
-        <NlpItem></NlpItem>
-
-        <GatItem></GatItem>
-        
-        <PcdItem></PcdItem>
-
-        {/* <div className={styles.project}>
-          <img src="/mapreduce.png"></img>
-          <div>
-            <h4>Using MapReduce to retrieve specific data from Hadoop distribution</h4>
-            <p>Hadoop is commonly used to mangage a large quantity of data, such as point cloud, stored in distributed systems. MapReduce provides developers a tool to efficient retrieval on specific data based on particular algorithms </p>
-          </div>
-        </div> */}
-
-        <VrlItem></VrlItem>
-
-        {/* <div className={styles.project}>
-          Simple deleted file recovery program based on FAT32 file system with C programming language.
-        </div> */}
-
-        <div>
-
+        <div className={styles.breadcrumb}>
+            <a href='/'>Home</a> &gt; VRL Project Details
         </div>
 
+        <div className={styles.projectContainer}>
+            <h1>Predict the future semantci masks of moving objects.</h1>
+            <div>
+                <h2>Problem Context</h2>
+                <p>
+                    Video prediction is considered to be a more challenging task than language prediction. Given the previous frames of a video, the challenge lies in how a program can predict what will happen next. The difficulty further increases when combining prediction with semantic segmentation, as the system needs to both predict the future and segment semantic objects from the future scene. In this project, we were provided with 22 consecutive frames of images, and the task was to predict the semantic masks for all 22 frames using only the first 11 frames. During the course, we attempted to use two separate models: <a target='_blank' href='https://github.com/milesial/Pytorch-UNet.git'>UNnet</a> for semantic segmentation and <a target='_blank' href='https://github.com/A4Bio/SimVP.git'>SimVP</a> for video prediction. This project is currently ongoing, and we are exploring the potential of using Vector Quantized Variational AutoEncoder (<a target='_blank' href='https://arxiv.org/abs/1711.00937'>VQVAE</a>) for video representation pre-training and semantic prediction fine-tuning.
+                </p>
+            </div>
+            <div>
+                <video width={"100%"} autoPlay loop muted>
+                    <source src='/vrlproblem.mp4' type='video/mp4'/>
+                    Your browser doesn't support video tag
+                </video>
+            </div>
+            <div>
+                <h2>Implementation</h2>
+                <p>
+                The training scheme of the initial attempt is shown below. First, we used a UNet for semantic segmentation training with cross-entropy loss. Second, SimVP, which is a structure consisting of a spatial encoder, temporal prediction, and spatial decoder, was employed to predict the pixel-level future. Finally, we combined the two models mentioned above and fine-tuned the spatial decoder with semantic segmentation while freezing the first two parts.
+                </p>
+                <figure className={styles.projectFigure}>
+                        <img src='/vrlframe.jpg' alt='Video Representation Learning Framework' width={"100%"}></img>
+                        <figcaption>
+                            Figure 1: The three stages training scheme for video semantic prediction learning
+                        </figcaption>
+                    </figure>
+            </div>
+            <div>
+                <h2>Results</h2>
+                Visualized results are shown below. The predicted images became blurred for the more distant future, leading to less accurate semantic mask results. It turned out that dividing the task into two steps—first predicting the pixels and then segmenting the predicted pixels—might not be a good idea. Instead, it makes more sense to convert the pixel images to a latent representation and then predict the latent representation, which led to the second idea of VQ-VAE pre-training.
+                <div className={styles.projectVideo}>
+                <video width={"80%"} autoPlay loop muted>
+                    <source src='/vrlresult.mp4' type='video/mp4'/>
+                    Your browser doesn't support video tag
+                </video>
+                </div>
+                The first step of the VQ-VAE method is to generate the image using an autoencoder architecture. The encoder converts the images into a latent embedding, the quantizer maps the output embedding to the nearest embedding in its (trainable) codebook, and finally, the nearest embedding is forwarded into the decoder to reconstruct the original images. The mean squared error between the reconstructed and original images is used to optimize the VQ-VAE model. Sample images generated were shown below. Once we have obtained a good embedding encoder, we can use it for video prediction and semantic segmentation in the next step. 
+            </div>
+            <figure className={styles.projectFigure}>
+                  <img src='/vqvae.jpg' alt='Generated Images with VQVAE' width={"100%"}></img>
+                  <figcaption>
+                      Figure 2: Images generated by the encoder of VQVAE(right), and the orignal image(left).
+                  </figcaption>
+              </figure>
+        </div>
+
+        <Gear is_home={false}></Gear>
       </main>
 
       <footer className={styles.footer}>
@@ -239,3 +183,5 @@ export default function Home() {
     </div>
   );
 }
+
+export default Vrl;

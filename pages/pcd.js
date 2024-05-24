@@ -1,127 +1,51 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import Gear from './gear';
-import AsvItem from './asvItem';
 import React, { useState } from 'react'
-import GatItem from './gatItem';
-import NlpItem from './nlpItem';
-import PcdItem from './pcdItem';
-import VrlItem from './vrlItem';
+import CodeBlock from './CodeBlock';
 
-
-export default function Home() {
+const Pcd = () => {
 
   return (
     <div className={styles.container}>
       <Head>
-        <title>Run Zhang's Homepage</title>
+        <title>Run Zhang's Project-NLP</title>
         <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
-        <h2 className={styles.title}>
-          Hi<span>(你好)</span>, my name is Run Zhang<span>(张润)</span>. Welcome to my page!
-        </h2>
 
-        <img src='/profile.jpg' className={styles.profile}></img>
-
-        <article className={styles.bio}>
-          <header>
-            <h2>Short Biography</h2>
-            <p>Last updated on <time dateTime='2024-5-21'>May 21st, 2024</time></p>
-          </header>
-          <p>I think of myself first and foremost as a software engineer. Over the years, I've gotten quite a bit of experience coding in C/C++ and Python to put algorithms into practice and work with data across a range of fields. That includes some cool projects using deep learning to tackle real-world challenges. These days, I'm broadening my horizons and picking up a wider variety of tech skills, from full-stack development to databases, so I can grow into a more versatile and accomplished engineer. I'm driven by working on projects that are both impactful and intellectually stimulating.</p>
-          <p className={styles.biofooter}>- Run Zhang</p>
-          {/* <footer>
-            <p>Author: Run Zhang</p>
-          </footer> */}
-        </article>
-
-        <div className={styles.eduwork}>
-          <div className={styles.eduworkcol}>
-            <h2>Education</h2>
-            <ul class={styles.educationlist}>
-              <li class={styles.educationitem}>
-                <div class={styles.educationdegree}>MS Information Systems</div>
-                <div class={styles.educationinstitution}>New York University</div>
-                <div class={styles.educationdate}>September 2023 - May 2025(Expected)</div>
-              </li>
-              <li class={styles.educationitem}>
-                <div class={styles.educationdegree}>MSc Artificial Intelligence</div>
-                <div class={styles.educationinstitution}>University of Southampton</div>
-                <div class={styles.educationdate}>September 2019 - October 2020</div>
-              </li>
-              <li class={styles.educationitem}>
-                <div class={styles.educationdegree}>Bachelor Software Engineering</div>
-                <div class={styles.educationinstitution}>Guangzhou University</div>
-                <div class={styles.educationdate}>September 2015 - July 2019</div>
-              </li>
-            </ul>
-          </div>
-
-
-          <div className={styles.eduworkcol}>
-            <h2>Professional Experience</h2>
-            
-            <ul class={styles.worklist}>
-            <li class={styles.workitem}>
-              <div class={styles.worktitle}>Software Engineer OD</div>
-              <div class={styles.workcompany}>Huawei Technologies Co., Ltd</div>
-              <div class={styles.workdate}>March 2023 - August 2023</div>
-            </li>
-            <li class={styles.workitem}>
-              <div class={styles.worktitle}>Software Engineer</div>
-              <div class={styles.workcompany}>Autowise.ai</div>
-              <div class={styles.workdate}>August 2021 - November 2022</div>
-            </li>
-            <li class={styles.workitem}>
-              <div class={styles.worktitle}>Intern</div>
-              <div class={styles.workcompany}>AIIT-PKU</div>
-              <div class={styles.workdate}>November 2020 - June 2021</div>
-            </li>
-          </ul>
-          </div>   
-        </div>
-        <Gear is_home={true}></Gear>
-          
-        <div className={styles.divider}>
-          Projects
-        </div>
-        
-        <AsvItem></AsvItem>
-        {/* <div className={styles.project}>
-          <img src='/navi_nn.png'></img>
-          <div>
-          <h4>Autonomous Surface Vehicle Controller</h4>
-          <p>The MSc disseration was about implementing Evolutionary Algorithms(MAP-Elites particularly) to build a vehicle controller, which chose from the action space based on the current status of the environment or vehicle itself. The project also investigate deep reinforcement learning and compared the two methods.</p>
-          </div>
-        </div> */}
-
-        <NlpItem></NlpItem>
-
-        <GatItem></GatItem>
-        
-        <PcdItem></PcdItem>
-
-        {/* <div className={styles.project}>
-          <img src="/mapreduce.png"></img>
-          <div>
-            <h4>Using MapReduce to retrieve specific data from Hadoop distribution</h4>
-            <p>Hadoop is commonly used to mangage a large quantity of data, such as point cloud, stored in distributed systems. MapReduce provides developers a tool to efficient retrieval on specific data based on particular algorithms </p>
-          </div>
-        </div> */}
-
-        <VrlItem></VrlItem>
-
-        {/* <div className={styles.project}>
-          Simple deleted file recovery program based on FAT32 file system with C programming language.
-        </div> */}
-
-        <div>
-
+        <div className={styles.breadcrumb}>
+            <a href='/'>Home</a> &gt; PCD Project Details
         </div>
 
+        <div className={styles.projectContainer}>
+            <h1>3D LiDAR point cloud semantic and noise point recoginition</h1>
+            <div>
+                <h2>Problem Context</h2>
+                <p>
+                3D LiDAR point cloud data can be considered as a set of triplets, where each triplet represents the x, y, and z position of a specific point in 3D space. To make this data meaningful for guiding autonomous driving, we need to develop algorithms that analyze the points, enabling the driving systems to plan and act accordingly. Unlike 2D image computer vision, 3D data is more challenging due to its high sparsity. Depending on the task, multiple families of point cloud algorithms might be used.
+                </p>
+                <p>
+                For simple global classification, we may not need to maintain spatial information, so a function approximator can be applied to each point without computing their relations. Another approach is to voxelize the 3D space by merging points that lie within the same grid into a single embedding. With this method, we can apply traditional convolution on the voxels. Although this method seems efficient, the sparsity of point cloud data results in the majority of voxels in the space being zero, leading to a waste of computing resources.
+              </p>
+              <p>
+                To address this problem, researchers have proposed <a href='https://github.com/facebookresearch/SparseConvNet' target='_blank'>submanifold sparse convolution</a>, which performs convolution only on positions with non-zero values. Additionally, there are algorithms that combine voxels and points to retain as much spatial and detail information as possible, such as <a target='_blank' href='https://github.com/mit-han-lab/spvnas'>SPVNas</a>. Since the computing resources in autonomous vehicles are quite limited, it is crucial to design algorithms efficiently to achieve the best trade-off between performance and frames per second (FPS).
+            </p>
+            </div>
+            <div>
+                <h2>Implementation</h2>
+                <p>
+                The first step in building a point cloud recognition system is to label the data. Different tasks have varying label requirements, such as drawing bounding boxes for detection and labeling each point for semantic segmentation. Next, we can start building our deep learning model using many open-source architectures that have been proven efficient in lab environments and published. Typically, we will need to adjust some hyperparameters to fit our specific problems. After training until we have obtained an acceptable model, the next step is to deploy the model into production. This is an essential step because converting the computation from Python to C++ often results in more than a 50% reduction in memory cost and computing time. Public tools such as <a href='https://onnx.ai' target='_blank'>ONNX</a> are useful for this purpose. For NVIDIA devices, adding an extra step to convert the ONNX model to a <a target='_blank' href='https://developer.nvidia.com/tensorrt#:~:text=NVIDIA%20TensorRT%2DLLM%20is%20an,on%20the%20NVIDIA%20AI%20platform.'>TensorRT</a> engine can further accelerate model computation. A major difficulty in converting to deployment-ready models is writing custom operation plugins if our model contains custom operations that are not yet supported by the aforementioned frameworks (layers like conv and linear are mostly supported, but submanifold sparse convolution is usually not).
+                </p>
+                <p>
+                  Despite researchers publishing many high-performing models, they might be too complex for industry applications where needs are more specific. To meet these specific needs, it might be more appropriate to draw inspiration from academia and then develop algorithms that suit customized requirements. For instance, there might be minor noise in the point cloud data. After manually observing a large number of such data points, we can gain insights into their patterns and identify features that are likely to play a role in recognizing those noise points. Therefore, bird's-eye view clustering can be applied to separate the space and split the scene into many parts of continuous objects. Then, point-wise classification is applied to each object. Although this idea sounds simple, this method has proven to perform surprisingly well in terms of computing speed and accuracy.
+            </p>
+            </div>
+        </div>
+
+        <Gear is_home={false}></Gear>
       </main>
 
       <footer className={styles.footer}>
@@ -239,3 +163,5 @@ export default function Home() {
     </div>
   );
 }
+
+export default Pcd;
