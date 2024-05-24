@@ -36,10 +36,14 @@ import { useRouter } from 'next/router';
 const Gear = ({is_home}) => {
   const [rotation, setRotation] = useState(0);
 
-  const router = useRouter()
+  // const router = useRouter()
 
   const handleClick = () => {
-    router.push('/')
+    // router.push('/')
+    window.scrollTo({
+      top:0,
+      behavior:'smooth'
+    })
   }
 
   useEffect(() => {
