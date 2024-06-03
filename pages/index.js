@@ -8,6 +8,7 @@ import NlpItem from './nlpItem';
 import PcdItem from './pcdItem';
 import VrlItem from './vrlItem';
 
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export default function Home() {
 
@@ -20,6 +21,7 @@ export default function Home() {
       </Head>
 
       <main>
+        <SpeedInsights/>
         <h2 className={styles.title}>
           Hi<span>(你好)</span>, my name is Run Zhang<span>(张润)</span>. Welcome to my page!
         </h2>
