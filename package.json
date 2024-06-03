@@ -6,6 +6,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@vercel/speed-insights": "^1.0.11",
     "next": "latest",
     "prismjs": "^1.29.0",
     "react": "18.2.0",
