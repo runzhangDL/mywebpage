@@ -33,7 +33,7 @@ export default function Home() {
             <h2>Short Biography</h2>
             <p>Last updated on <time dateTime='2024-5-21'>May 21st, 2024</time></p>
           </header>
-          <p>I think of myself first and foremost as a software engineer. Over the years, I've gotten quite a bit of experience coding in C/C++ and Python to put algorithms into practice and work with data across a range of fields. That includes some cool projects using deep learning to tackle real-world challenges. These days, I'm broadening my horizons and picking up a wider variety of tech skills, from full-stack development to databases, so I can grow into a more versatile and accomplished engineer. I'm driven by working on projects that are both impactful and intellectually stimulating.</p>
+          <p>I think of myself first and foremost as a software engineer. Over the years, I've gotten quite a bit of experience coding in C/C++ and Python to put algorithms into practice and work with data across a range of fields. That includes some cool projects using deep learning to tackle real-world challenges. These days, I'm broadening my horizons and picking up a wider variety of tech skills, from full-stack development, databases to Cloud computing, so I can grow into a more versatile and accomplished engineer. Besides, I am also learning CUDA to accelerate programs with data parallelism. I'm driven by working on projects that are both impactful and intellectually stimulating.</p>
           <p className={styles.biofooter}>- Run Zhang</p>
           {/* <footer>
             <p>Author: Run Zhang</p>
