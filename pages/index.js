@@ -7,6 +7,7 @@ import GatItem from './gatItem';
 import NlpItem from './nlpItem';
 import PcdItem from './pcdItem';
 import VrlItem from './vrlItem';
+import GptItem from './gptItem'
 
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
@@ -90,6 +91,8 @@ export default function Home() {
         <div className={styles.divider}>
           Projects
         </div>
+        
+        <GptItem></GptItem>
         
         <AsvItem></AsvItem>
         {/* <div className={styles.project}>
