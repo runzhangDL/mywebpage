@@ -28,3 +28,10 @@ yarn-error.log*
 .env.development.local
 .env.test.local
 .env.production.local
+
+# typescript
+next-env.d.ts
+*.tsbuildinfo
+
+# claude code local tooling
+.claude/
